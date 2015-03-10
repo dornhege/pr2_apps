@@ -552,7 +552,7 @@ void GeneralCommander::sendGripperCommand(WhichArm which, bool close) {
       com.command.max_effort = GRIPPER_OPEN_MAX_EFFORT;
     }
     right_gripper_client_->sendGoal(com);
-    right_gripper_client_->waitForResult(ros::Duration(5.0));
+    right_gripper_client_->waitForResult(ros::Duration(15.0));
     if(right_gripper_client_->getState() == actionlib::SimpleClientGoalState::SUCCEEDED)
       ROS_DEBUG("Right gripper command succeeded");
     else
@@ -568,7 +568,7 @@ void GeneralCommander::sendGripperCommand(WhichArm which, bool close) {
       com.command.max_effort = GRIPPER_OPEN_MAX_EFFORT;
     }
     left_gripper_client_->sendGoal(com);
-    left_gripper_client_->waitForResult(ros::Duration(5.0));
+    left_gripper_client_->waitForResult(ros::Duration(15.0));
     if(left_gripper_client_->getState() == actionlib::SimpleClientGoalState::SUCCEEDED)
       ROS_DEBUG("Left gripper command succeeded");
     else
